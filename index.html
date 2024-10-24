@@ -75,7 +75,7 @@
         }
 
         function refreshForecastWeather() {
-            jsonp.request(apiProtocol + "//api.openweathermap.org/data/2.5/forecast?" + _apiParams + "&callback=jsonp.response" + "&_timestamp=" + (new Date()).getTime()
+            jsonp.request(apiProtocol + "//api.openweathermap.org/data/2.5/forecast/daily?" + _apiParams + "&callback=jsonp.response" + "&cnt=" + forecastCount + "&_timestamp=" + (new Date()).getTime()
                 , function (data) {
                     processForecastWeather(data);
                 }, "forecast");
@@ -96,11 +96,14 @@
                 var forecast = data.list[i];
 
                 var feelsLike = tempType == "feelsLike";
+                // For feels like there is no min/max so we are displaying night/day temp
+                let minTemp = (feelsLike ? Math.round(forecast.feels_like.night) : Math.round(forecast.temp.min))
+                let maxTemp = (feelsLike ? Math.round(forecast.feels_like.day) : Math.round(forecast.temp.max))
 
-                forecastsCells[i].temp.innerHTML = (feelsLike ? Math.round(forecast.main.feels_like) : Math.round(forecast.main.temp)) + unitsSymbolHtml;
+                forecastsCells[i].temp.innerHTML = minTemp + "/" + maxTemp + unitsSymbolHtml;
                 forecastsCells[i].icon.className = getIconClassName(forecast.weather[0], new Date(forecast.dt * 1000));
                 forecastsCells[i].desc.innerHTML = forecast.weather[0].description;
-                forecastsCells[i].time.innerHTML = momentWithCorrectUtcOffset(new Date(forecast.dt * 1000)).format(timeFormat);
+                forecastsCells[i].time.innerHTML = momentWithCorrectUtcOffset(new Date(forecast.dt * 1000)).format(dayFormat);
                 forecastsCells[i].temp.className = feelsLike ? "colTemp feelsLike" : "colTemp";
                 forecastsCells[i].icon.style.transform = null;
                 forecastsCells[i].icon.style.webkitTransform = null;
@@ -327,6 +330,7 @@
         ];
 
         var timeFormat = "HH:mm";
+        var dayFormat = "dddd";
 
         // Config parameters.
         var api_params, api_appId, api_lang, api_units, api_locParams, rotation, night_mode, refreshTime, utcOffset, tempType;
