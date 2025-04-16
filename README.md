@@ -49,6 +49,7 @@ create a config.js file from config.js.sample and set variables:
 * `api_appId` - set your `API KEY (appId)` from http://openweathermap.org/appid
 * `api_lang` - output language (e.g. `en`)
 * `api_units` - units (e.g. `metric`, `imperial`)
+* `api_protocol` - protocol for the API requests. If not set, it will be determined by the script.
 * or you can set all parameters with the `api_params` variable (e.g. `q=Prague&appid=YOUR_API_KEY&lang=sk&units=metric`)
 * `rotation` - set rotation (on Kindle Paperwhite) `ll` for left landscape, `lr` for right landscape, and `up` for upside down
 * `night_mode` - `auto` - based on sunrise and sunset, `on` - always on, `HH-HH` (`22-06`) interval for on/off, `off` or `null` to disable

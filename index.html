@@ -11,7 +11,13 @@
     <link rel="stylesheet" type="text/css" href="css/kindle.css"/>
 
     <script type="text/javascript">
-        var apiProtocol = window.location.protocol === 'file:' ? 'https:' : window.location.protocol;
+
+        var apiProtocol;
+        if (api_protocol && api_protocol !== '') {
+            apiProtocol = api_protocol;
+        } else {
+            apiProtocol = window.location.protocol === 'file:' ? 'https:' : window.location.protocol;
+        }
 
         var jsonp = function () {
             return {

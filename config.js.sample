@@ -3,6 +3,7 @@ var api_locParams = "lat=50.1243111&lon=14.4901953";
 var api_appId = "YOUR_API_KEY";
 var api_lang = "sk"
 var api_units = "metric"; 
+var api_protocol = null;
 
 var api_params = null;
 
