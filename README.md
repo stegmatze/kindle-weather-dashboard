@@ -52,6 +52,7 @@ create a config.js file from config.js.sample and set variables:
 * or you can set all parameters with the `api_params` variable (e.g. `q=Prague&appid=YOUR_API_KEY&lang=sk&units=metric`)
 * `rotation` - set rotation (on Kindle Paperwhite) `ll` for left landscape, `lr` for right landscape, and `up` for upside down
 * `night_mode` - `auto` - based on sunrise and sunset, `on` - always on, `HH-HH` (`22-06`) interval for on/off, `off` or `null` to disable
+* `enableRefresh` - enable/disable refresh
 * `refreshTime` - refresh rate in milliseconds (default is 30 minutes)
 * `utcOffset` - if not set, it is determined by location, `local` - local machine UTC offset, or custom UTC offset. (Because Kindle doesn't report the correct local time. You may need to change the value after the winter/summer time change)
 * `tempType` - use `feelsLike` to show feels-like temperatures

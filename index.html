@@ -86,7 +86,9 @@
             refreshActualWeather();
             refreshForecastWeather();
 
+            if (enableRefresh) {
             window.setTimeout("refreshData()", refreshTime);
+        }
         }
 
         function processForecastWeather(data) {
