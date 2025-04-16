@@ -26,3 +26,5 @@ var night_mode = "off";
 // Null is default
 var utcOffset = null
 
+// Override Viewport (e.g. fullscreen browser)
+var overrideViewport = {width: 600, height: 799};

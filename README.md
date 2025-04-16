@@ -56,6 +56,7 @@ create a config.js file from config.js.sample and set variables:
 * `refreshTime` - refresh rate in milliseconds (default is 30 minutes)
 * `utcOffset` - if not set, it is determined by location, `local` - local machine UTC offset, or custom UTC offset. (Because Kindle doesn't report the correct local time. You may need to change the value after the winter/summer time change)
 * `tempType` - use `feelsLike` to show feels-like temperatures
+* `overrideViewport` - override viewport (e.g. kindle touch fullscreen browser: {width: 600, height: 799})
 
 See more: http://openweathermap.org/current and http://openweathermap.org/forecast5
 

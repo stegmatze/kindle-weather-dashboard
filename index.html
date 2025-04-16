@@ -484,6 +484,11 @@
                 a = 'client';
                 e = document.documentElement || document.body;
             }
+
+            if (overrideViewport) {
+                return overrideViewport;
+            }
+
             return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
         }
 
