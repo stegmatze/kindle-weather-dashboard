@@ -1,0 +1,1 @@
+var battery = '123%';

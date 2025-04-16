@@ -37,8 +37,8 @@ Icons source: https://github.com/erikflowers/weather-icons
 3. rename `config.js.sample` to `config.js` and set the parameters you need (all parameters are optional and can be set in the HTML webpage `config.html`, but I recommend setting at least the `api_appId`)
 4. copy the folder with all files to the root of Kindle storage
 5. disable the screensaver on your Kindle:
-  * press the search button (or keyboard button on Kindle 4) on homescreen and type: `;debugOn` and press enter on the keyboard
-  * press the search button (or keyboard button on Kindle 4) again and type: `~disableScreensaver` and press enter on the keyboard. (On Kindle Paperwhite, type: `~ds` - with new firmware this may not be possible, but see these [instructions](https://github.com/matopeto/kindle-weather-dashboard/issues/16) for a solution)
+* press the search button (or keyboard button on Kindle 4) on homescreen and type: `;debugOn` and press enter on the keyboard
+* press the search button (or keyboard button on Kindle 4) again and type: `~disableScreensaver` and press enter on the keyboard. (On Kindle Paperwhite, type: `~ds` - with new firmware this may not be possible, but see these [instructions](https://github.com/matopeto/kindle-weather-dashboard/issues/16) for a solution)
 6. launch the browser on your Kindle and go to: `file:///mnt/us/kindle-weather-dashboard/index.html` (where `kindle-weather-dashboard` is the folder in the root of your Kindle storage from step 4)
 
 ## Configuration
@@ -57,6 +57,7 @@ create a config.js file from config.js.sample and set variables:
 * `utcOffset` - if not set, it is determined by location, `local` - local machine UTC offset, or custom UTC offset. (Because Kindle doesn't report the correct local time. You may need to change the value after the winter/summer time change)
 * `tempType` - use `feelsLike` to show feels-like temperatures
 * `overrideViewport` - override viewport (e.g. kindle touch fullscreen browser: {width: 600, height: 799})
+* `updateBatteryLevel` - updates batter level from a provided `battery.js` file, see [Battery level](#battery-level)
 
 See more: http://openweathermap.org/current and http://openweathermap.org/forecast5
 
@@ -84,3 +85,13 @@ Examples:
 ### Real devices
 <img src="real_devices.jpg" width="300" alt="Dashboard on real devices" />
 
+## Battery level
+
+If you want to update the battery level, write a `battery.js` file to the root of this folder with the contents:
+```javascript
+var battery = '123%';
+```
+This can be done by running the following command on the kindle:
+```bash
+echo "var battery = '$(gasgauge-info -c)';" > battery.js
+```

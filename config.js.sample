@@ -26,5 +26,8 @@ var night_mode = "off";
 // Null is default
 var utcOffset = null
 
-// Override Viewport (e.g. fullscreen browser)
+// Override viewport (e.g. fullscreen browser)
 var overrideViewport = {width: 600, height: 799};
+
+// Update battery level
+var updateBatteryLevel = true;

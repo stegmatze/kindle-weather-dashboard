@@ -226,6 +226,10 @@
             //  alert(data.name);
             setNightMode();
             setMoonIconsRotation(data.coord.lat)
+
+            if (updateBatteryLevel) {
+                updateBatteryLevel();
+            }
         }
 
         /**
@@ -578,6 +582,24 @@
             } else {
                 return moment(dateTime).utcOffset(utcOffset, false);
             }
+        }
+
+        // Update battery level, write output to lastUpdate element
+        // this is done dynamically to allow updating on refresh
+        // See README.md for more information
+        function updateBatteryLevel() {
+            var head= document.getElementsByTagName('head')[0];
+            var batteryscript = document.createElement('script');
+            batteryscript.src = 'battery.js?v=' + new Date().getTime();
+            head.appendChild(batteryscript);
+
+            window.setTimeout(function () {
+                if (typeof(battery) == 'undefined') {
+                    return false;
+                }
+
+                lastUpdate.innerHTML += ' | ' + battery;
+            }, 100);
         }
 
     </script>
