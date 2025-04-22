@@ -27,8 +27,11 @@ var night_mode = "off";
 // Null is default
 var utcOffset = null
 
+// Offline mode - offline after initial load
+var offlineMode = false;
+
 // Override viewport (e.g. fullscreen browser)
-var overrideViewport = {width: 600, height: 799};
+// var overrideViewport = {width: 600, height: 799};
 
 // Update battery level
 var updateBatteryLevel = true;

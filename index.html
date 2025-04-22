@@ -436,6 +436,8 @@
             icon = document.getElementById("icon");
 
             city = document.getElementById("city");
+
+            if (!offlineMode) {
             city.addEventListener('click', function (event) {
                 event.preventDefault();
                 window.location.href = window.location.href.replace("/index.html", "/config.html");
@@ -448,6 +450,7 @@
                 window.location.href = newHref
                 return false
             });
+            }
             description = document.getElementById("description");
             lastUpdate = document.getElementById("lastUpdate");
             date = document.getElementById("date");
@@ -615,7 +618,7 @@
 
 <body>
 <div id="page">
-    <a id="city" href="./config.html"></a>
+    <div id="city"></div>
     <div id="iconWrapper"><i id="icon"></i></div>
     <div class="tempWrapper">
         <div id="temp"></div>

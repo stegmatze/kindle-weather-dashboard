@@ -59,6 +59,7 @@ create a config.js file from config.js.sample and set variables:
 * `tempType` - use `feelsLike` to show feels-like temperatures
 * `overrideViewport` - override viewport (e.g. kindle touch fullscreen browser: {width: 600, height: 799})
 * `updateBatteryLevel` - updates batter level from a provided `battery.js` file, see [Battery level](#battery-level)
+* `offlineMode` - enable/disable 'offline mode' - disables click targets for running without internet connection
 
 See more: http://openweathermap.org/current and http://openweathermap.org/forecast5
 
