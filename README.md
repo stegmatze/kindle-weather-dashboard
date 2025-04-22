@@ -107,3 +107,12 @@ Use `refreshWeatherDashboard.sh` instead of the refresh option to save a lot of 
 
 This script is triggered via a cronjob, in my case hourly from hours 5 to 23: \
 `0 5-23 * * * /mnt/us/kindle-weather-dashboard/refreshWeatherDashboard.sh`
+
+## KUAL extension
+Use the KUAL extension to disable/enable the refresh cronjob. Useful for when the Kindle is also used as reader :-) \
+Also the second menu entry starts the script directly.
+
+### Install the extension
+Copy all content from `KUAL/extension` to the extensions folder of your Kindle. This is usually `/mnt/us/extensions/`.\
+When starting KUAL the next time, the Weather Dashboard should be available. \
+Update the script to your needs, when the script location is different.
