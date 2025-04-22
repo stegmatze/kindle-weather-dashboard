@@ -96,3 +96,14 @@ This can be done by running the following command on the kindle:
 ```bash
 echo "var battery = '$(gasgauge-info -c)';" > battery.js
 ```
+
+## Refresh Script
+Use `refreshWeatherDashboard.sh` instead of the refresh option to save a lot of battery:
+- enable wifi
+- dump the battery info
+- refresh the browser (WebLaunch)
+- send a ping to a defined URL (via .env) with the current battery level as payload
+- disable wifi
+
+This script is triggered via a cronjob, in my case hourly from hours 5 to 23: \
+`0 5-23 * * * /mnt/us/kindle-weather-dashboard/refreshWeatherDashboard.sh`
